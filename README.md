@@ -1,4 +1,4 @@
-Deepstruct
+Deep Struct
 ==========
 
 An adapter that wraps common ruby data-structures and makes them look like proper Objects.
