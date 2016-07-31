@@ -39,7 +39,7 @@ deep_struct = DeepStruct.new({:a => 1, "b" => 2})
 If DeepStruct is getting in your way, you can always get access to the raw content:
 
 ```ruby
-deep_struct = Deepstruct.new(hello: world)
+deep_struct = Deepstruct.new(hello: 'world')
 deep_struct.to_h
   => {:hello=>"world"}
 ```
