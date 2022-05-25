@@ -9,10 +9,10 @@ class DeepStruct < OpenStruct
       recursive_initializer(v) if v.is_a?(Array)
 
       @table[k.to_sym] = (v.is_a?(Hash) ? self.class.new(v) : v)
-      @hash_table[k.to_sym] = v 
-      new_ostruct_member(k)
-    end 
-  end 
+      @hash_table[k.to_sym] = v
+      new_ostruct_member!(k)
+    end
+  end
 
   def to_h
     self.marshal_dump.map{ |key, element|
@@ -20,9 +20,9 @@ class DeepStruct < OpenStruct
         {key => element.to_h}
       else
         {key => element}
-      end 
+      end
     }.reduce(&:merge)
-  end 
+  end
 
   protected
 
@@ -33,8 +33,8 @@ class DeepStruct < OpenStruct
       elsif val.is_a?(Array)
         val.map{|v| recursive_initializer(v) }
       else
-        val 
-      end 
-    end 
-  end 
+        val
+      end
+    end
+  end
 end
